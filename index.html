@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reference vs copy</title>
+</head>
+
+<body>
+
+    <script>
+
+        //references changes the original. 
+        //coppy makes a copy which when it changes, the original doesnt change. 
+
+        let age = 100;
+        let age2 = age;
+
+        age = 200;
+
+        // console.log(age, age2);
+
+        ///////////////////////////////////////////////////////
+
+        let players = ['abi', 'bado', 'cali', 'dogo'];
+
+        // const team = players; //reference was made
+
+
+        // const team2 = players.slice(); //copy made
+
+
+        // const team3 = [].concat(players); //copy made
+
+
+        // const team4 = [...players]; //copy made
+
+        // let team5 = Array.from(players);
+
+        // team5[3] = 'lobito'; 
+
+        // console.log(team5);
+
+        ////////////////////////////////////////////////////////////
+
+        const person = {
+            name: 'John',
+            age: 27
+        };
+
+        // // const captain = person; //reference was made
+        // // captain.number = 99;
+        //console.log(person);
+
+
+        // const cap2 = Object.assign({}, person, { number: 99, age: 12}); //copy was made
+        // console.log(cap2);
+        //console.log(person);
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        const wes = {
+            name: 'wes',
+            age: 100,
+            social: {
+                twitter: '@wesbos',
+                facebook: 'wesbos.developer'
+            }
+        };
+
+
+
+        // const dev = Object.assign({}, wes);
+        // dev.social.twitter = 'baddo'; //reference was made
+
+        // console.log(wes.social.twitter);
+
+        const dev2 = JSON.parse(JSON.stringify(wes)); //poor mans copy
+        dev2.social.twitter = 'baddoski'; //copy was made
+
+        console.log(wes.social.twitter);
+        console.log(dev2.social.twitter);
+
+    </script>
+
+</body>
+
+</html>
